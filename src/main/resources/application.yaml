@@ -1,0 +1,13 @@
+mongodb:
+  uri: mongodb+srv://subhammathpal:IZPuVm5tKNFwFa11@cluster0.tts9y2l.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+  port: 27017
+  host: localhost
+  database: journaldb
+  auto-index-creation: true
+
+#will shift the configurations to dev will be used in the default profile.
+spring:
+  profiles:
+    active: dev
+
+

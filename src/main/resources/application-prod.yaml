@@ -1,0 +1,17 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /journalsm
+spring:
+  data:
+#    username: myjournaluser
+#    password: mypassword
+  mongodb:
+    uri: mongodb+srv://subhammathpal:IZPuVm5tKNFwFa11@cluster0.tts9y2l.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+    port: 27017
+    host: localhost
+    database: journaldb
+    auto-index-creation: true
+
+
+
