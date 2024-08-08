@@ -6,9 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ArgumentsSource;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -30,7 +28,7 @@ public class UserServiceTests {
     @Disabled
     public void testFindByUserName() {
         User user = userRepository.findByUserName("ram");
-        assertTrue(!user.getJournalEntries().isEmpty());
+        assertFalse(user.getJournalEntries().isEmpty());
 //        assertEquals(4, 2+2);
         assertNotNull(userRepository.findByUserName("ram"));
 //        assertTrue(5>3);
@@ -87,7 +85,7 @@ public class UserServiceTests {
     }
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
 
     }
 }
