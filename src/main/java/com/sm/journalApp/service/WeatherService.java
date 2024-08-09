@@ -1,26 +1,30 @@
 package com.sm.journalApp.service;
 
+import com.sm.journalApp.cache.AppCache;
+import com.sm.journalApp.constants.Placeholders;
 import com.sm.journalApp.model.WeatherResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-@Component
+@Service
 public class WeatherService {
 
     @Value("${weather.api.key}")
     private String apiKey;
 
-    private static final String API = "http://api.weatherstack.com/current?accesskey=API_KEY&query=CITY";
-
+    @Autowired
+    private AppCache appCache;
     @Autowired
     private RestTemplate restTemplate;
 
     public WeatherResponse getWeather(String city) {
-        String finaApi = API.replace("CITY", city).replace("API_KEY", apiKey);
+        String finaApi = appCache.appCache.get(AppCache.keys.WEATHER_API.toString())
+                .replace(Placeholders.city, city)
+                .replace(Placeholders.API_KEY, apiKey);
 //        HttpHeaders headers = new HttpHeaders();
 //        headers.set("key", "value");
 //        String requestBody = "{\n" +
