@@ -7,7 +7,7 @@ spring:
 #    username: myjournaluser
 #    password: mypassword
   mongodb:
-    uri: mongodb+srv://subhammathpal:IZPuVm5tKNFwFa11@cluster0.tts9y2l.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+    uri: ${cred}
     port: 27017
     host: localhost
     database: journaldb
